@@ -1,0 +1,17 @@
+{
+  "name": "signUp_firebase",
+  "displayName": "signUp_firebase",
+  "expo": {
+    "name": "signUp_firebase",
+    "slug": "expo-template-bare",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
