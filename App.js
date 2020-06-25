@@ -7,8 +7,8 @@ import * as firebase from 'firebase';
 
 import HomeScreen from './components/HomeScreen';
 import LoadingScreen from './components/LoadingScreen';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+import SignInScreen from './components/SignIn';
+import SignUpScreen from './components/SignUp';
 
 var firebaseConfig = {
     apiKey: "AIzaSyCP9y0ssJIbTkWf8yMGSI6F62gvB1ZADLA",
@@ -20,67 +20,44 @@ var firebaseConfig = {
     appId: "1:251648575479:web:ffea1392fba363e38bd0f2"
   };
   // Initialize Firebase
-  //firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
 });
 
-function Home({ navigation }) {
-  return (
-    <View style={{ flex: 1}}>
-      <HomeScreen/>
-      <Button
-        title="Go to Notifications"
-        onPress={() => navigation.navigate('Notifications')}
-      />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
+// function Home({ navigation }) {
+//   return (
+//     <View style={{ flex: 1}}>
+//       <HomeScreen/>
+//       <Button
+//         title="Go to Loading"
+//         onPress={() => navigation.navigate('Loading')}
+//       />
+//       <Button title="Go back" onPress={() => navigation.goBack()} />
+//     </View>
+//   );
+// }
 
-function ProfileScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1}}>
-      <Button
-        title="Go to Notifications"
-        onPress={() => navigation.navigate('Notifications')}
-      />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
+// function Loading({ navigation }) {
+//   return (
+//     <View style={{ flex: 1}}>
+//       <LoadingScreen/>
+//     </View>
+//   );
+// }
 
-function NotificationsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        title="Go to Settings"
-        onPress={() => navigation.navigate('Settings')}
-      />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
-
-function SettingsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Go back YOUU" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Notifications" component={NotificationsScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Loading" component={LoadingScreen} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="SignIn" component={SignInScreen} />
     </Stack.Navigator>
   );
 }
