@@ -36,8 +36,13 @@ export default class SignIn extends Component {
 
   render(){
     return (
+      <View style= {styles.containers}>
       <KeyboardAvoidingView>
       <View style={styles.container}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('../assets/logo.png')}
+      />
         <TextInput
           value={this.state.username}
           onChangeText={(email) => this.setState({ email })}
@@ -54,12 +59,21 @@ export default class SignIn extends Component {
         />
 
         <Button
-          title={'Login'}
-          style={styles.input}
+          title={'SignIn'}
+          style={styles.inputButton}
+          onPress={() => this.props.navigation.navigate('SignUp')}
           //onPress={this.onLogin.bind(this)}
-        ><Text>LogIn</Text></Button>
+        ><Text style={{marginLeft: 120}}>Sign In</Text></Button>
+
+        <TouchableOpacity
+        onPress={() => this.props.navigation.navigate('SignUp')}
+        style= {styles.newAccount} >
+        <Text>Create a New Account?</Text>
+        </TouchableOpacity>
+
       </View>
       </KeyboardAvoidingView>
+      </View>
     );
   }
 }
@@ -69,15 +83,44 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: '#fff',
     marginTop : 300,
   },
+  containers: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   input: {
+    width: 300,
+    height: 44,
+    padding: 10,
+    borderWidth: 0.3,
+    borderColor: 'black',
+    marginBottom: 20,
+    borderRadius: 10,
+    backgroundColor: 'white',
+  },
+  inputButton: {
+    width: 300,
+    height: 44,
+    padding: 10,
+    borderWidth: 0.2,
+    borderColor: 'black',
+    marginBottom: 20,
+    borderRadius: 10,
+    backgroundColor: "#ff4301",
+  },
+  newAccount: {
     width: 200,
     height: 44,
     padding: 10,
-    borderWidth: 1,
     borderColor: 'black',
     marginBottom: 10,
+  },
+  tinyLogo: {
+    width: 66,
+    height: 78,
+
+    marginBottom: 40,
   },
 });

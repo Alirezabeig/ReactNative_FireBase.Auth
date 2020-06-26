@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, Image } from 'react-native';
 
 
 const instructions = Platform.select({
@@ -13,12 +13,16 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>HomeScreen !</Text>
-        <View style={{ flex: 1}}>
-
+        <View >
         <Button
-       title="Go to Loading"
+       title="SignIn"
           onPress={() => this.props.navigation.navigate('Loading')}
            />
+
+           <Button
+          title="SignUp"
+             onPress={() => this.props.navigation.navigate('SignUp')}
+              />
           </View>
       </View>
     );
@@ -30,16 +34,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#000',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+
+  },
+  tiny: {
+    position : 'absolute',
+
   },
 });
