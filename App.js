@@ -9,6 +9,7 @@ import HomeScreen from './components/HomeScreen';
 import LoadingScreen from './components/LoadingScreen';
 import SignInScreen from './components/SignIn';
 import SignUpScreen from './components/SignUp';
+import ProfileScreen from './components/Profile';
 
 var firebaseConfig = {
     apiKey: "AIzaSyCP9y0ssJIbTkWf8yMGSI6F62gvB1ZADLA",
@@ -58,6 +59,8 @@ function MyStack() {
       <Stack.Screen name="Loading" component={LoadingScreen} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="SignIn" component={SignInScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+
     </Stack.Navigator>
   );
 }

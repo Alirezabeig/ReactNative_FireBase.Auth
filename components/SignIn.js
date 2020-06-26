@@ -34,7 +34,20 @@ export default class SignIn extends Component {
     header : null
   }
 
+  signInUser = (email, password) => {
+    firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      this.props.navigation.navigate("Profile")
+    })
+    .catch(error => {
+      alert(error.message)
+    })
+  }
+
   render(){
+    const {email, password} = this.state;
     return (
       <View style= {styles.containers}>
       <KeyboardAvoidingView>
@@ -61,7 +74,7 @@ export default class SignIn extends Component {
         <Button
           title={'SignIn'}
           style={styles.inputButton}
-          onPress={() => this.props.navigation.navigate('SignUp')}
+          onPress={() => this.signInUser(email, password) }
           //onPress={this.onLogin.bind(this)}
         ><Text style={{marginLeft: 120}}>Sign In</Text></Button>
 

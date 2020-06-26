@@ -27,8 +27,25 @@ export default class SignUp extends Component {
   }
   }
   static navigationOption = {
-    title : "SignIn",
+    title : "SignUp",
     header : null
+  }
+
+  signUpUser = (name, email, password) => {
+    firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(authenticate => {
+      return authenticate.user.updateProfile({
+        displayName: name
+      })
+      .then(()=>{
+        this.props.navigation.navigate("Profile");
+      })
+    })
+    .catch( error => {
+      alert(error.message)
+    })
   }
 
   render(){
